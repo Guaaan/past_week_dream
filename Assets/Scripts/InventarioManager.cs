@@ -30,7 +30,7 @@ public class InventarioManager : MonoBehaviour
 
     public void AgregarAlgoAlInventario(int id, int cantidad)
     {
-        for( int i = 0;i< inventario.Count; i++)
+        for (int i = 0; i < inventario.Count; i++)
         {
             if (inventario[i].id == id)
             {
@@ -38,9 +38,21 @@ public class InventarioManager : MonoBehaviour
                 return;
             }
         }
-        ObjetoInventarioId n = new ObjetoInventarioId();
-        n.id = id;
-        n.cantidad = cantidad;
-        inventario.Add(n);
+        inventario.Add(new ObjetoInventarioId(id, cantidad));
+    }
+
+    public void EliminarAlgoDeInventario(int id, int cantidad)
+    {
+        for (int i = 0; i > inventario.Count; i++)
+        {
+            if (inventario[i].id == id)
+            {
+                inventario[i].sumarCantidad(-cantidad);
+                if (inventario[i].cantidad <= 0)
+                    inventario.Remove(inventario[i]);
+                return;
+            }
+        }
+        Debug.LogError("No exite el objeot a eliminar");
     }
 }
