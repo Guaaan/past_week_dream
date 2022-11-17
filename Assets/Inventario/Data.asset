@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50be02a57ef1e45eab857c6c1621537e, type: 3}
+  m_Name: Data
+  m_EditorClassIdentifier: 
+  baseDatos:
+  - nombre: Cerebro
+    sprite: {fileID: 131807792, guid: 8bc66122946b3486ea629108b0ff5ae3, type: 3}
+    caracteristicas: El sufrimiento de toda una vida, condensado en 1kg de grasa
+  - nombre: "P\xE9talo de tr\xE9bol"
+    sprite: {fileID: 1707926288, guid: 8bc66122946b3486ea629108b0ff5ae3, type: 3}
+    caracteristicas: mmmmm... no sirve de mucho realmente
+  - nombre: "Tr\xE9bol de tres hojas"
+    sprite: {fileID: -437244531, guid: 8bc66122946b3486ea629108b0ff5ae3, type: 3}
+    caracteristicas: "casi, pero casi que d\xE1 algo de suerte"
+  - nombre: "Tr\xE9bol de cuatro hojas"
+    sprite: {fileID: 382741395, guid: 8bc66122946b3486ea629108b0ff5ae3, type: 3}
+    caracteristicas: "Medidor de buena suerte seg\xFAn antiguas creencias"
+  - nombre: "Tr\xE9bol de cinco hojas"
+    sprite: {fileID: -498428223, guid: 8bc66122946b3486ea629108b0ff5ae3, type: 3}
+    caracteristicas: "Elemento de m\xE1xima suerte, pero no libra de las dehonrra
+      que puedas acarrear en tu vida"
+  - nombre: 
+    sprite: {fileID: 0}
+    caracteristicas: 
+  - nombre: 
+    sprite: {fileID: 0}
+    caracteristicas: 
+  - nombre: 
+    sprite: {fileID: 0}
+    caracteristicas: 
+  - nombre: 
+    sprite: {fileID: 0}
+    caracteristicas: 
+  - nombre: 
+    sprite: {fileID: 0}
+    caracteristicas: 
