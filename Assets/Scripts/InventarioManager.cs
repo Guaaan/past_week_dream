@@ -18,10 +18,10 @@ public class InventarioManager : MonoBehaviour
 
         }
 
-        public void sumarCantidad(int cantidad)
-        {
-            this.cantidad += cantidad;
-        }
+       // public void sumarCantidad(int cantidad)
+       // {
+       //     this.cantidad += cantidad;
+       // }
     }
 
 
@@ -36,7 +36,7 @@ public class InventarioManager : MonoBehaviour
             // si existe en la lista no lo agrego sino que sumo
             if (inventario[i].id == id)
             {
-                inventario[i].sumarCantidad(cantidad);
+                inventario[i] = new ObjetoInventarioId(inventario[i].id, inventario[i].cantidad + cantidad);
                 ActualizarInventario();
                 return;
             }
@@ -53,7 +53,7 @@ public class InventarioManager : MonoBehaviour
             if (inventario[i].id == id)
             {
                 // si hay más de uno le resto la cantidad
-                inventario[i].sumarCantidad(-cantidad);
+                inventario[i] = new ObjetoInventarioId(inventario[i].id, inventario[i].cantidad - cantidad);
                 // si queda en cero elimino el item
                 if (inventario[i].cantidad <= 0)
                     inventario.Remove(inventario[i]);
@@ -76,6 +76,7 @@ public class InventarioManager : MonoBehaviour
 
     public void ActualizarInventario()
     {
+        print("inventario actulizado");
         for (int i = 0; i < pool.Count; i++)
         {
             if (i < inventario.Count)
