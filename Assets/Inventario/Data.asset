@@ -15,32 +15,52 @@ MonoBehaviour:
   baseDatos:
   - nombre: Cerebro
     sprite: {fileID: 131807792, guid: 8bc66122946b3486ea629108b0ff5ae3, type: 3}
+    uso: 0
     caracteristicas: El sufrimiento de toda una vida, condensado en 1kg de grasa
+    funcion: Cerebro
   - nombre: "P\xE9talo de tr\xE9bol"
     sprite: {fileID: 1707926288, guid: 8bc66122946b3486ea629108b0ff5ae3, type: 3}
+    uso: 0
     caracteristicas: mmmmm... no sirve de mucho realmente
+    funcion: 
   - nombre: "Tr\xE9bol de tres hojas"
     sprite: {fileID: -437244531, guid: 8bc66122946b3486ea629108b0ff5ae3, type: 3}
+    uso: 0
     caracteristicas: "casi, pero casi que d\xE1 algo de suerte"
+    funcion: 
   - nombre: "Tr\xE9bol de cuatro hojas"
     sprite: {fileID: 382741395, guid: 8bc66122946b3486ea629108b0ff5ae3, type: 3}
+    uso: 0
     caracteristicas: "Medidor de buena suerte seg\xFAn antiguas creencias"
+    funcion: 
   - nombre: "Tr\xE9bol de cinco hojas"
     sprite: {fileID: -498428223, guid: 8bc66122946b3486ea629108b0ff5ae3, type: 3}
+    uso: 0
     caracteristicas: "Elemento de m\xE1xima suerte, pero no libra de las dehonrra
       que puedas acarrear en tu vida"
+    funcion: 
   - nombre: 
     sprite: {fileID: 0}
+    uso: 0
     caracteristicas: 
+    funcion: 
   - nombre: 
     sprite: {fileID: 0}
+    uso: 0
     caracteristicas: 
+    funcion: 
   - nombre: 
     sprite: {fileID: 0}
+    uso: 0
     caracteristicas: 
+    funcion: 
   - nombre: 
     sprite: {fileID: 0}
+    uso: 0
     caracteristicas: 
+    funcion: 
   - nombre: 
     sprite: {fileID: 0}
+    uso: 0
     caracteristicas: 
+    funcion: 
