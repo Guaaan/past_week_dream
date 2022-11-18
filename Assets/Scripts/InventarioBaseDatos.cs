@@ -5,19 +5,22 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "Inventory/List", order = 1)]
 public class InventarioBaseDatos : ScriptableObject
 {
-    public ObjetoInventario[] baseDatos;
-
-}
-[System.Serializable]
-public struct ObjetoInventario
-{
-    public string nombre;
-    public Sprite sprite;
-    public enum uso
+    [System.Serializable]
+    public struct ObjetoInventario
+    {
+        public string nombre;
+        public Sprite sprite;
+        public Uso uso;
+        public string caracteristicas;
+        public string funcion;
+    }
+    public enum Uso
     {
         usable,
         equipable,
         consumible
     }
-    public string caracteristicas;
+
+    public ObjetoInventario[] baseDatos;
+
 }

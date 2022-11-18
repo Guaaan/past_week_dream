@@ -8,4 +8,5 @@ public class InventarioObjetoInterface : MonoBehaviour
 {
     public TMP_Text cantidad;
     public Image sprite;
+    public Button boton;
 }

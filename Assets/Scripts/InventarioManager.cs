@@ -18,10 +18,10 @@ public class InventarioManager : MonoBehaviour
 
         }
 
-       // public void sumarCantidad(int cantidad)
-       // {
-       //     this.cantidad += cantidad;
-       // }
+        // public void sumarCantidad(int cantidad)
+        // {
+        //     this.cantidad += cantidad;
+        // }
     }
 
 
@@ -48,7 +48,7 @@ public class InventarioManager : MonoBehaviour
 
     public void EliminarAlgoDeInventario(int id, int cantidad)
     {
-        for (int i = 0; i > inventario.Count; i++)
+        for (int i = 0; i < inventario.Count; i++)
         {
             if (inventario[i].id == id)
             {
@@ -61,7 +61,7 @@ public class InventarioManager : MonoBehaviour
                 return;
             }
         }
-        Debug.LogError("No exite el objeot a eliminar");
+        Debug.LogError("No existe el objeto a eliminar");
     }
 
     public void Start()
@@ -76,7 +76,7 @@ public class InventarioManager : MonoBehaviour
 
     public void ActualizarInventario()
     {
-        print("inventario actulizado");
+        print("inventario actualizado");
         for (int i = 0; i < pool.Count; i++)
         {
             if (i < inventario.Count)
@@ -84,6 +84,13 @@ public class InventarioManager : MonoBehaviour
                 ObjetoInventarioId o = inventario[i];
                 pool[i].sprite.sprite = baseDatos.baseDatos[o.id].sprite;
                 pool[i].cantidad.text = o.cantidad.ToString();
+
+                // elimina todos los los listeners del boton lo que lo deja sirviendo para nada
+                pool[i].boton.onClick.RemoveAllListeners();
+                // le  agrego la funcion al boton para
+                pool[i].boton.onClick.AddListener(() => gameObject.SendMessage(baseDatos.baseDatos[o.id].funcion, SendMessageOptions.DontRequireReceiver));
+
+
                 pool[i].gameObject.SetActive(true);
             }
             else
@@ -104,9 +111,19 @@ public class InventarioManager : MonoBehaviour
                     ObjetoInventarioId o = inventario[i];
                     pool[i].sprite.sprite = baseDatos.baseDatos[o.id].sprite;
                     pool[i].cantidad.text = o.cantidad.ToString();
+
+                    pool[i].boton.onClick.RemoveAllListeners();
+                    pool[i].boton.onClick.AddListener(() => gameObject.SendMessage(baseDatos.baseDatos[o.id].funcion, SendMessageOptions.DontRequireReceiver));
+
                     pool[i].gameObject.SetActive(true);
                 }
         }
     }
 
+    public void Cerebro()
+    {
+        // recibe el id y luego la cantidad que elimina
+        EliminarAlgoDeInventario(0, 1);
+        print("el alma se te llena de ideas que no te pertenecen y te sientes cansado");
+    }
 }
