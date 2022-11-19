@@ -64,6 +64,14 @@ public class InventarioManager : MonoBehaviour
         Debug.LogError("No existe el objeto a eliminar");
     }
 
+    public void IntercambiarPuestos(int i1, int i2)
+    {
+        ObjetoInventarioId i = inventario[i1];
+        inventario[i1] = inventario[i2];
+        inventario[i2] = i;
+        ActualizarInventario();
+    }
+
     public void Start()
     {
         ActualizarInventario();
@@ -85,6 +93,9 @@ public class InventarioManager : MonoBehaviour
                 pool[i].sprite.sprite = baseDatos.baseDatos[o.id].sprite;
                 pool[i].cantidad.text = o.cantidad.ToString();
 
+                pool[i].id = i;
+
+
                 // elimina todos los los listeners del boton lo que lo deja sirviendo para nada
                 pool[i].boton.onClick.RemoveAllListeners();
                 // le  agrego la funcion al boton para
@@ -98,25 +109,28 @@ public class InventarioManager : MonoBehaviour
                 pool[i].gameObject.SetActive(false);
             }
         }
+        if (inventario.Count > pool.Count)
         {
-            if (inventario.Count > pool.Count)
-                for (int i = pool.Count; i < inventario.Count; i++)
-                {
-                    InventarioObjetoInterface oi = Instantiate(prefab, inventarioUI);
-                    pool.Add(oi);
-                    // escala y posiciona automaticamente en el canvas
-                    oi.transform.position = Vector3.zero;
-                    oi.transform.localScale = Vector3.one;
+            for (int i = pool.Count; i < inventario.Count; i++)
+            {
+                InventarioObjetoInterface oi = Instantiate(prefab, inventarioUI);
+                pool.Add(oi);
 
-                    ObjetoInventarioId o = inventario[i];
-                    pool[i].sprite.sprite = baseDatos.baseDatos[o.id].sprite;
-                    pool[i].cantidad.text = o.cantidad.ToString();
+                // escala y posiciona automaticamente en el canvas
+                oi.transform.position = Vector3.zero;
+                oi.transform.localScale = Vector3.one;
 
-                    pool[i].boton.onClick.RemoveAllListeners();
-                    pool[i].boton.onClick.AddListener(() => gameObject.SendMessage(baseDatos.baseDatos[o.id].funcion, SendMessageOptions.DontRequireReceiver));
+                ObjetoInventarioId o = inventario[i];
+                pool[i].sprite.sprite = baseDatos.baseDatos[o.id].sprite;
+                pool[i].cantidad.text = o.cantidad.ToString();
+                pool[i].id = i;
+                pool[i].manager = this;
 
-                    pool[i].gameObject.SetActive(true);
-                }
+                pool[i].boton.onClick.RemoveAllListeners();
+                pool[i].boton.onClick.AddListener(() => gameObject.SendMessage(baseDatos.baseDatos[o.id].funcion, SendMessageOptions.DontRequireReceiver));
+
+                pool[i].gameObject.SetActive(true);
+            }
         }
     }
 
