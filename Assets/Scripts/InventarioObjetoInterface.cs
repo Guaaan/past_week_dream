@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -31,6 +31,7 @@ public class InventarioObjetoInterface : MonoBehaviour, IBeginDragHandler, IDrag
 
     public void OnEndDrag(PointerEventData eventData)
     {
+       
         arrastrando = null;
         InventarioObjetoInterfacePlaceholder.current.transform.position = new Vector3(10000, 1000, 100);
     }
@@ -38,10 +39,17 @@ public class InventarioObjetoInterface : MonoBehaviour, IBeginDragHandler, IDrag
     {
         // si arrastramos a un espacio vacío
         if (arrastrando == null)
+        {
+
+            print("arrastrando es null");
             return;
+        }
         // si arrastramos al mismo objeto que tomamos
         if (arrastrando == this)
+        {
+            print("arrastrando es this");
             return;
+        }
 
         manager.IntercambiarPuestos(id, arrastrando.id);
     }

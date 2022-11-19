@@ -17,11 +17,6 @@ public class InventarioManager : MonoBehaviour
             this.cantidad = cantidad;
 
         }
-
-        // public void sumarCantidad(int cantidad)
-        // {
-        //     this.cantidad += cantidad;
-        // }
     }
 
 
@@ -92,16 +87,16 @@ public class InventarioManager : MonoBehaviour
                 ObjetoInventarioId o = inventario[i];
                 pool[i].sprite.sprite = baseDatos.baseDatos[o.id].sprite;
                 pool[i].cantidad.text = o.cantidad.ToString();
-
+    
                 pool[i].id = i;
-
-
+    
+    
                 // elimina todos los los listeners del boton lo que lo deja sirviendo para nada
                 pool[i].boton.onClick.RemoveAllListeners();
                 // le  agrego la funcion al boton para
                 pool[i].boton.onClick.AddListener(() => gameObject.SendMessage(baseDatos.baseDatos[o.id].funcion, SendMessageOptions.DontRequireReceiver));
-
-
+    
+    
                 pool[i].gameObject.SetActive(true);
             }
             else
@@ -115,24 +110,25 @@ public class InventarioManager : MonoBehaviour
             {
                 InventarioObjetoInterface oi = Instantiate(prefab, inventarioUI);
                 pool.Add(oi);
-
+    
                 // escala y posiciona automaticamente en el canvas
                 oi.transform.position = Vector3.zero;
                 oi.transform.localScale = Vector3.one;
-
+    
                 ObjetoInventarioId o = inventario[i];
                 pool[i].sprite.sprite = baseDatos.baseDatos[o.id].sprite;
                 pool[i].cantidad.text = o.cantidad.ToString();
                 pool[i].id = i;
                 pool[i].manager = this;
-
+    
                 pool[i].boton.onClick.RemoveAllListeners();
                 pool[i].boton.onClick.AddListener(() => gameObject.SendMessage(baseDatos.baseDatos[o.id].funcion, SendMessageOptions.DontRequireReceiver));
-
+    
                 pool[i].gameObject.SetActive(true);
             }
         }
     }
+    
 
     public void Cerebro()
     {
