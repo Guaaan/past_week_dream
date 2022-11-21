@@ -162,7 +162,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &309478449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,7 +402,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &559786283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -740,10 +740,9 @@ MonoBehaviour:
   dialoguePanel: {fileID: 365061676}
   dialogueText: {fileID: 2003976451}
   dialogueLines:
-  - 'yo: Hola q mas'
-  - 'tu: pintada en el retrovisor'
-  - "yo: ah co\xF1o est\xE1 bn"
-  - 'tu: siempre que advierte el invierno'
+  - 'yo: quiero hacer un juego'
+  - "tu: deber\xEDas hacer un juego peque\xF1o : )"
+  - 'yo: >:( '
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,7 +1096,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2569,7 +2568,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -163.32, y: 0}
-  m_SizeDelta: {x: 454, y: 0}
+  m_SizeDelta: {x: 454, y: 14}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2076632695
 MonoBehaviour:
