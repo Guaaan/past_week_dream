@@ -29,7 +29,7 @@ MonoBehaviour:
     caracteristicas: "casi, pero casi que d\xE1 algo de suerte"
     funcion: 
   - nombre: "Tr\xE9bol de cuatro hojas"
-    sprite: {fileID: 382741395, guid: 8bc66122946b3486ea629108b0ff5ae3, type: 3}
+    sprite: {fileID: 349600875, guid: 8bc66122946b3486ea629108b0ff5ae3, type: 3}
     uso: 0
     caracteristicas: "Medidor de buena suerte seg\xFAn antiguas creencias"
     funcion: 
@@ -39,15 +39,15 @@ MonoBehaviour:
     caracteristicas: "Elemento de m\xE1xima suerte, pero no libra de las dehonrra
       que puedas acarrear en tu vida"
     funcion: 
-  - nombre: 
-    sprite: {fileID: 0}
+  - nombre: "Dinosaurio de pl\xE1stico"
+    sprite: {fileID: -688128326, guid: 8bc66122946b3486ea629108b0ff5ae3, type: 3}
     uso: 0
-    caracteristicas: 
+    caracteristicas: "Un peque\xF1o animalito hecho de restos de ese mismo animalito"
     funcion: 
-  - nombre: 
-    sprite: {fileID: 0}
+  - nombre: "Cr\xE1neo"
+    sprite: {fileID: 349600875, guid: 8bc66122946b3486ea629108b0ff5ae3, type: 3}
     uso: 0
-    caracteristicas: 
+    caracteristicas: "un cr\xE1neo nomas"
     funcion: 
   - nombre: 
     sprite: {fileID: 0}

@@ -10,11 +10,14 @@ public class InventarioManager : MonoBehaviour
     {
         public int id;
         public int cantidad;
+        public string nombre;
 
-        public ObjetoInventarioId(int id, int cantidad)
+
+        public ObjetoInventarioId(int id, int cantidad, string nombre)
         {
             this.id = id;
             this.cantidad = cantidad;
+            this.nombre = nombre;
 
         }
     }
@@ -28,16 +31,22 @@ public class InventarioManager : MonoBehaviour
     {
         for (int i = 0; i < inventario.Count; i++)
         {
+
+            string nombre = inventario[i].nombre;
             // si existe en la lista no lo agrego sino que sumo
             if (inventario[i].id == id)
             {
-                inventario[i] = new ObjetoInventarioId(inventario[i].id, inventario[i].cantidad + cantidad);
+                inventario[i] = new ObjetoInventarioId(inventario[i].id, inventario[i].cantidad + cantidad, nombre);
                 ActualizarInventario();
                 return;
             }
+            else
+            {
+                inventario.Add(new ObjetoInventarioId(id, cantidad, nombre));
+
+            }
         }
         // si no existe en la lista lo agrego nuevo
-        inventario.Add(new ObjetoInventarioId(id, cantidad));
         ActualizarInventario();
     }
 
@@ -48,7 +57,7 @@ public class InventarioManager : MonoBehaviour
             if (inventario[i].id == id)
             {
                 // si hay más de uno le resto la cantidad
-                inventario[i] = new ObjetoInventarioId(inventario[i].id, inventario[i].cantidad - cantidad);
+                inventario[i] = new ObjetoInventarioId(inventario[i].id, inventario[i].cantidad - cantidad, inventario[i].nombre);
                 // si queda en cero elimino el item
                 if (inventario[i].cantidad <= 0)
                     inventario.Remove(inventario[i]);
@@ -79,7 +88,6 @@ public class InventarioManager : MonoBehaviour
 
     public void ActualizarInventario()
     {
-        print("inventario actualizado");
         for (int i = 0; i < pool.Count; i++)
         {
             if (i < inventario.Count)
@@ -87,16 +95,17 @@ public class InventarioManager : MonoBehaviour
                 ObjetoInventarioId o = inventario[i];
                 pool[i].sprite.sprite = baseDatos.baseDatos[o.id].sprite;
                 pool[i].cantidad.text = o.cantidad.ToString();
-    
+
+
+
                 pool[i].id = i;
-    
-    
+
+
                 // elimina todos los los listeners del boton lo que lo deja sirviendo para nada
                 pool[i].boton.onClick.RemoveAllListeners();
                 // le  agrego la funcion al boton para
                 pool[i].boton.onClick.AddListener(() => gameObject.SendMessage(baseDatos.baseDatos[o.id].funcion, SendMessageOptions.DontRequireReceiver));
-    
-    
+
                 pool[i].gameObject.SetActive(true);
             }
             else
@@ -110,25 +119,28 @@ public class InventarioManager : MonoBehaviour
             {
                 InventarioObjetoInterface oi = Instantiate(prefab, inventarioUI);
                 pool.Add(oi);
-    
+
                 // escala y posiciona automaticamente en el canvas
                 oi.transform.position = Vector3.zero;
                 oi.transform.localScale = Vector3.one;
-    
+
                 ObjetoInventarioId o = inventario[i];
                 pool[i].sprite.sprite = baseDatos.baseDatos[o.id].sprite;
                 pool[i].cantidad.text = o.cantidad.ToString();
+
                 pool[i].id = i;
                 pool[i].manager = this;
-    
+
                 pool[i].boton.onClick.RemoveAllListeners();
                 pool[i].boton.onClick.AddListener(() => gameObject.SendMessage(baseDatos.baseDatos[o.id].funcion, SendMessageOptions.DontRequireReceiver));
-    
+
                 pool[i].gameObject.SetActive(true);
             }
         }
+        print("inventario actualizado");
+
     }
-    
+
 
     public void Cerebro()
     {

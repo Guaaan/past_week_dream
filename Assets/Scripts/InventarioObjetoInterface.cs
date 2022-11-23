@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class InventarioObjetoInterface : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public TMP_Text cantidad;
+    public TMP_Text nombre;
     public Image sprite;
     public Button boton;
     public int id;
