@@ -12,13 +12,9 @@ public class EnemigoUno : MonoBehaviour
     public LayerMask capaDelJugador;
 
     public Transform jugador;
+    public Transform wayPoint;
     bool estarAlerta;
     public float velocidad;
-
-    public Quaternion angulo;
-    public float cronometro;
-    public float grado;
-    public int rutina;
 
     void Start()
     {
@@ -37,26 +33,7 @@ public class EnemigoUno : MonoBehaviour
         }
         else
         {
-            cronometro += 1 * Time.deltaTime;
-            switch (rutina)
-            {
-                case 0:
-                    print("caso0");
-                    rutina++;
-                    break;
-                case 1:
-                    grado = Random.Range(0, 360);
-                    angulo = Quaternion.Euler(0, grado, 0);
-                    rutina++;
-                    print("caso1");
-                    break;
-                case 2:
-                    transform.rotation = Quaternion.RotateTowards(transform.rotation, angulo, 0.5f);
-                    transform.Translate(Vector3.forward * 1 * Time.deltaTime);
-                    print("caso2");
-
-                    break;
-            }
+            print("nada pasando por la cabeza del enemigo");
         }
     }
     private void OnDrawGizmos()
@@ -65,4 +42,5 @@ public class EnemigoUno : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, rangoDeAlerta);
     }
+  
 }
