@@ -13,12 +13,26 @@ public class EnemigoUno : MonoBehaviour
 
     public Transform jugador;
     public Transform wayPoint;
-    bool estarAlerta;
+    public bool estarAlerta;
     public float velocidad;
+
+
+    // guarda la referencia del sistema de waypoints que se van a usar
+    [SerializeField] private Waypoints waypoints;
+
+    [SerializeField] private float distanceThreshold = 0.1f;
+    // el waypoint actual al que se mueve el personaje
+    private Transform currentWaypoint;
 
     void Start()
     {
+        //asignar posición inicial
+        currentWaypoint = waypoints.GettNextWaypoint(currentWaypoint);
+        transform.position = currentWaypoint.position;
 
+        // asignar el proximo waypoint objetivo
+        currentWaypoint = waypoints.GettNextWaypoint(currentWaypoint);
+        transform.LookAt(currentWaypoint);
     }
 
     void Update()
@@ -33,7 +47,15 @@ public class EnemigoUno : MonoBehaviour
         }
         else
         {
-            print("nada pasando por la cabeza del enemigo");
+            print("te agarré wacho vení que te reviento");
+            transform.position = Vector3.MoveTowards(transform.position, currentWaypoint.position, velocidad * Time.deltaTime);
+            transform.LookAt(currentWaypoint);
+
+            if (Vector3.Distance(transform.position, currentWaypoint.position) < distanceThreshold)
+            {
+                currentWaypoint = waypoints.GettNextWaypoint(currentWaypoint);
+                transform.LookAt(currentWaypoint);
+            }
         }
     }
     private void OnDrawGizmos()
@@ -42,5 +64,5 @@ public class EnemigoUno : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, rangoDeAlerta);
     }
-  
+
 }
